@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%-include('./bootstrap.ejs')%>
+    </head>
+    <body>
+        <table>
+            <th>
+                <tr>
+                <td>S.no</td>
+                <td>Name of Category</td>
+                <td>Images Of Category</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            </th>
+            <tbody>
+                <% s=0; 
+                for(index in categoryList){%>
+                <tr id="row+<%=categoryList[index].id%>">
+                    <td><%=++s%></td>
+                    <td><%=categoryList[index].categoryName%></td>
+                    <td style="width:100px;height:100px">
+                        <img src="/categoryImages/<%=categoryList[index].categoryImage%>" width="100" height="100"> 
+                
+                    <td><a href="/editcategory/<%=categoryList[index].id%>" >Edit</a></td>
+                   <td><button onclick="deleteCategory('<%=categoryList[index].id%>')">Delete</button></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>  
+        <script>
+            function deleteCategory(categoryID){
+              if(confirm('Are you sure ?')){  
+                  console.log(categoryID);
+                  $.ajax({
+                          
+                         url: '/delete-Category/'+categoryID,
+                      success: function(result){
+                      $.ajax('#row'+categoryID).remove();
+                      }
+                  });
+              }
+            }
+        </script>
+    </body>
+</html>

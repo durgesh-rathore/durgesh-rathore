@@ -1,0 +1,32 @@
+<html>
+<style>
+    input{
+        width: 200px;
+        height: 25px;
+        margin-top: 15px;
+    }
+</style>
+    <body>
+        
+    
+<form class="form" action="/EditCategory" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="cid" value="<%=categoryItem.id%>"/>
+        <input type="hidden" name="oldcategoryImage" value="<%=categoryItem.categoryImage%>" id="">
+    <div class="form-group">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input id="categoryName" name="categoryName" value="<%=categoryItem.categoryName%>" class="form-control" type="text" placeholder="Name of Category" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <!-- <label for="password" aria-readonly="true">password</label> -->
+        <i class="fa fa-unlock" aria-hidden="true"></i>
+        <img src="/categoryImages/<%=categoryItem.categoryImage%>" width="120px" height="120px" alt="ram"><br>
+        <input id="categoryImage" name="categoryImage" value=""class="form-control" type="file" placeholder="Change file" autocomplete="off" >
+    </div>
+
+    <div class="btn-submit">
+        <button type="" class="sign-in-btn">Update data</button>
+    </div>
+
+</form>
+</body>
+</html>

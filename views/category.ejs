@@ -1,0 +1,27 @@
+
+ <html>
+<style>
+    input{
+        width: 200px;
+        height: 25px;
+        margin-top: 15px;
+    }
+</style>
+    <body>
+  <form class="form" action="/addCategory" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input id="categoryName" name="categoryName" class="form-control" type="text" placeholder="Name of Category" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <input id="categoryImage" name="categoryImage" class="form-control" type="file" placeholder="chose file" autocomplete="off" required>
+    </div>
+
+    <div class="btn-submit">
+        <button type="submit" class="sign-in-btn">Add Category</button> 
+    </div>
+
+</form>
+</body>
+</html> 
+     
